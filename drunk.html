@@ -55,8 +55,7 @@
             for y = 1, #walker.grid[x] do
             self.x = self.x + math.random(-step, step)
             self.y = self.y + math.random(-step, step)
-                if self.x > 1 and self.x < #walker.grid and self.y > 1
-                and self.y < #walker.grid[x] then
+                if self.x > 1 and self.x < #walker.grid and self.y > 1 and self.y < #walker.grid[x] then
                     walker.grid[self.x][self.y] = 1
                 end
             end

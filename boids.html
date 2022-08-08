@@ -41,10 +41,6 @@
         boid's position on the screen.
     </p>
 
-    <p>For the sake of clarity, I decided to rewrite my code without using 'self', it seemed a little ambiguous as to whether it was referring to the flock, 
-        or an individual boid. Here's what it looks like now:
-    </p>
-
     <pre>
         <code>
     local boids = {}
@@ -195,7 +191,7 @@
 
     <video src="./videos/boids_2.mp4" controls style = "margin-left:15%; width: 70%; border: 2px solid white"></video>
     <p>So, it's a little hard to tell in the video. Note the FPS counter I have added, I was troubleshooting this, it's just
-        chugging a bit while I'm recording. I get ~450 FPS without OBS running in the background, and the boids' move a lot more smoothly.
+        chugging a bit while I'm recording. I get ~450 FPS without OBS running in the background, and the boids move a lot more smoothly.
     </p>
 
     <p>So, I guess just take my word for now, this rule seems to be working as it should, the boids are speeding up and slowing down together,
@@ -204,7 +200,7 @@
 
 
     <h3>Rule 3: Avoid collisions with other boids.</h3>
-    <p>We'll say that our boids are more Responsible Ravens than Lush Larps, so they'll avoid FUI (flying under the influence), and they'll
+    <p>We'll say that our boids are more Responsible Ravens than Lush Larks, so they'll avoid FUI (flying under the influence), and they'll
         be good at avoiding mid-flight collisions. So we need to do 2 new things here. One, they need to have a way to detect when another boid is
         too close, and two, give them some sort of evasive maneuver.
     </p>
@@ -226,8 +222,7 @@
                 local x = neighbor.position.x
                 local y = neighbor.position.y
                 if i ~= j then j = j + 1
-                    if circle(member.position.x, member.position.y, radius;
-                    neighbor.position.x, neighbor.position.y) then
+                    if circle(member.position.x, member.position.y, radius, neighbor.position.x, neighbor.position.y) then
                         member.v1.x = neighbor.v2.y
                         member.v1.y = neighbor.v2.x
                     end
@@ -274,7 +269,7 @@
         degrees of success. Nothing worked perfectly. Have a look:
     </p>
 
-    <table style = "margin-left: 15%; margin-right: 15%;">
+    <table>
         <tr>
         <td stlye = "width: 50%">
             <video src="./videos/boids_8.mp4" style = "width: 98%; border: 2px solid white;" autoplay muted loop></video>
@@ -299,8 +294,8 @@
         the student and the teacher, and the teacher part has decided that using someone else's code here is fine, as the student is still going to get
         some practice transcribing it from the source language into Lua. 
     </p>
-    <p>This ended up being a moot point anyway. I just can't find anything I like enough to rip off. The boids are either too simple (like having a fixed
-        speed, spawning on one edge of the screen and flying to the other) or too complex (like a 15k line C++ scientific simulation of a murmur written
+    <p>This ended up being a moot point anyway. I just can't find anything I like enough to rip off. The boids are either too simple (like spawning at one
+        edge of the screen and flying with a fixed speed to the other) or too complex (like a 15k line C++ scientific simulation of a murmur written
         by real life bird scientists at universities). There seems to be no 'Goldilocks boid code'- hey, I think that's the name of a band. Which brings
         us to boid rule 5 of 3.
     </p>

@@ -61,6 +61,16 @@ menu {
     margin-left: 15%;
 }
 
+menu a {
+    display: inline;
+    margin: auto;
+    text-align: justify;
+}
+
+a:visited {
+    color:red;
+}
+
 img {
     width: 200px;
 }
@@ -77,6 +87,7 @@ pre code {
     display: block;
     margin-right: 15%;
     margin-left: 15%;
+    overflow-x: auto;
   }
 
 
@@ -102,13 +113,6 @@ li a:visited {
     color: black;
 }
 
-a:link {
-    color:black;
-}
-
-a:visited {
-    color:red;
-}
 
 .nav {
     position: fixed;
@@ -122,4 +126,9 @@ a:visited {
     margin: auto;
     list-style-type: none;
     text-align: center;
+}
+
+table {
+    margin-left: 15%;
+    margin-right: 15%;
 }
