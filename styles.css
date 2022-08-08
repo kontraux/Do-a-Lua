@@ -24,17 +24,6 @@ body {
     width: 250px;
 }
 
-a {
-    font-size: 1em;
-}
-
-a:link {
-    color:red;
-}
-
-a:visited {
-    color:red;
-}
 
 h1 {
     font-family: 'Courier New', Courier, monospace;
@@ -72,12 +61,6 @@ menu {
     margin-left: 15%;
 }
 
-li {
-    font-weight: 900;
-    text-align: left;
-}
-
-
 img {
     width: 200px;
 }
@@ -105,16 +88,38 @@ code {
     height: 1%;
 }
 
-.contact {
-    position: fixed;
-    text-align: center; 
-    margin-left: 0;
-    bottom: 0px;
-    left: 0px;
-    width: 100%;
-    color: black;
-    font-weight: 900;
-    background-color: red;
-    border: 2px solid red;
+li {
+    padding: 15px;
+    display: inline;
 }
 
+li a {
+    color: black;
+    font-weight: 900;
+}
+
+li a:visited {
+    color: black;
+}
+
+a:link {
+    color:black;
+}
+
+a:visited {
+    color:red;
+}
+
+.nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    margin: 0;
+    padding: 0;
+    border: 2px solid red;
+    background-color: red;
+    width: 100%;
+    margin: auto;
+    list-style-type: none;
+    text-align: center;
+}
