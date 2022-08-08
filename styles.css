@@ -11,8 +11,6 @@ body {
     font-family: 'Courier New', Courier, monospace;
     background-color: black;
     color: white;
-    margin-left: 15%;
-    margin-right: 15%;
 }
 
 .light_mode {
@@ -20,65 +18,71 @@ body {
     color: black;
 }
 
-.container {
-    width: 250px;
-}
 
+.home_box {
+    padding: 2em;
+}
 
 h1 {
     font-family: 'Courier New', Courier, monospace;
-    font-size: 3em;
+    font-size: 2em;
     font-weight:100;
+    padding-top: 0.5em;
+    margin-bottom: 0;
     text-align: center;
 }
 
 h2 {
-    font-size: 1.5em;
+    font-size: 1.3em;
     text-align: center;
     font-weight: 100;
     font-style: italic;
+    margin-right: 15%;
+    margin-left: 15%;
+    margin-top: 0;
+    padding-bottom: 0.5em;
 }
 
 h3 {
+    display: block;
     font-size: 1.2em;
     text-align: center;
     font-weight: 100;
     font-style: italic;
-    margin-top: 5%;
     margin-right: 15%;
     margin-left: 15%;
 }
 
 p {
+    display: block;
+    font-size: 1em;
     margin-right: 15%;
     margin-left: 15%;
 }
 
-menu {
+
+
+.test a {
     list-style:decimal;
-    white-space: nowrap;
-    margin-right: 15%;
-    margin-left: 15%;
+    margin: auto;
 }
 
-menu a {
-    display: inline;
-    margin: auto;
-    text-align: justify;
+a {
+    font-size: 1em;
+    color: red;
 }
+
 
 a:visited {
     color:red;
 }
 
 img {
-    width: 200px;
-}
-
-#portrait {
-    float: left;
-    width: 200px;
-    padding: 2%;
+    width: 70%;
+    margin-right: 15%;
+    margin-left: 15%;
+    padding-top: 1em;
+    padding-bottom: 1em;
 }
 
 pre code {
@@ -89,11 +93,6 @@ pre code {
     margin-left: 15%;
     overflow-x: auto;
   }
-
-
-.code_block {
-    height: 250;
-}
 
 code {
     height: 1%;
@@ -131,4 +130,47 @@ li a:visited {
 table {
     margin-left: 15%;
     margin-right: 15%;
+}
+
+.warning_box {
+    display:block; 
+    margin-bottom: 5%; 
+    margin-left: 15%; 
+    margin-right: 15%; 
+    border: 2px double red; 
+    width:auto;
+}
+
+.warning_text {
+    color: white; 
+    font-style: italic; 
+    margin: 1%; 
+    text-align: center;
+}
+
+.centered {
+    text-align: center;
+}
+
+video {
+    border: 2px solid white;
+    width: 98%;
+}
+
+.art_video {
+    width: 50%;
+    margin-left: 25%;
+    margin-right: 25%;
+    margin-bottom: 2.5em;
+    margin-top: 2.5em;
+}
+
+.table_img {
+    margin: 0;
+    width: 100%;
+}
+
+.container {
+    width: 250px;
+    margin: auto;
 }

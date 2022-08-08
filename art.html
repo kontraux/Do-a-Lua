@@ -11,21 +11,22 @@
 <body>
 
     <ul class="nav">
-        <li><a href = "./index.html">Do-A-Home</a></li>
-        <li><a href ="./bio.html">Do-A-Bio</a></li>
-        <li><a href ="mailto:samuelblake@gmail.com">Do-A-Contact</a></li>
+        <li><a href="./index.html">Do-A-Home</a></li>
+        <li><a href="./bio.html">Do-A-Bio</a></li>
+        <li><a href="mailto:samuelblake@gmail.com">Do-A-Contact</a></li>
     </ul>
 
-    
+
     <h1>Do-A-Lua</h1>
     <h2>Do an art (by accident).</h2>
-    <div style = "display:block; margin-bottom: 5%; margin-left: 15%; margin-right: 15%; border: 2px double red; width:auto;">
-        <p style = "color: white; font-style: italic; margin: 1%; text-align: center;">Photosensitivity warning: Images and videos on this page may trigger seizures in 
+    <div class="warning_box">
+        <p class="warning_text">Photosensitivity warning: Images and videos on this page may trigger seizures in
             photosensitive individuals. Viewer discretion is advised. <a href="./index.html">Return to homepage.</a>
     </div>
     <p>A lot of algorithms used for procedural generation need to start with noise, as represented by numbers in a
         random or semi-random pattern on a grid.
-        Starting out, I didn't need anything special, random noise was good enough, so I wrote my noise function like this:
+        Starting out, I didn't need anything special, random noise was good enough, so I wrote my noise function like
+        this:
     </p>
 
     <pre>
@@ -55,7 +56,7 @@
     </pre>
 
     <p>Run of the mill, (pseudo)random noise.</p>
-    <img style="margin-left: 15%; margin-right: 15%; width: 70%;" src="./images/random_noise.png"></img>
+    <img src="./images/random_noise.png"></img>
 
     <p>Using this as a base can get decent results. Here's what it looks like after applying cellular automata, which I
         got from
@@ -64,7 +65,7 @@
         and transcribed into Lua from (Java? C++? It occurs to me I don't know what language it is.)
     </p>
 
-    <img style="margin-left: 15%; margin-right: 15%; width: 70%;" src="./images/cellular_automata.png"></img>
+    <img src="./images/cellular_automata.png"></img>
 
     <p>It looks really pretty good to me. It could definitely be islands, forests, or caverns, and depending on how you
         use it, there are of course
@@ -77,12 +78,15 @@
         landscape. It will always just be this blobby structure, more or less.
     </p>
 
-    <p>Generating "good" noise is apparently a huge topic unto itself, as it's used for more than procedural generation. It's used
+    <p>Generating "good" noise is apparently a huge topic unto itself, as it's used for more than procedural generation.
+        It's used
         for shaders, movie CGI, scientific
         simulations, and other stuff. And while there's lots of algorithms already out there- Guassian noise, Perlin
         noise, Brownian noise, Worley noise...
-        I didn't really want to use them. Partly because I don't understand them (recursive filters? hardcoded permutation tables?) and
-        partly because I get sick of people telling me "don't reinvent the wheel." Look, if I didn't enjoy writing my own code, I'd be
+        I didn't really want to use them. Partly because I don't understand them (recursive filters? hardcoded
+        permutation tables?) and
+        partly because I get sick of people telling me "don't reinvent the wheel." Look, if I didn't enjoy writing my
+        own code, I'd be
         using Unity.
     </p>
     <h3>Make some noise in the hizzy!</h3>
@@ -91,50 +95,68 @@
         way to do this would be to start
         punching numbers in randomly. And of course, what I got was... unexpected?</p>
 
-    <div style="padding-bottom:2%; margin-left: 15%; margin-right: 15%; margin-bottom: 12%;">
-        <img style="width: 50%; float: left;" src="./images/noise_4.png"></img>
-        <img style="width: 50%; float: right;" src="./images/noise_3.png"></img>
-        <img style="width: 50%; float: right;" src="./images/noise_2.png"></img>
-        <img style="width: 50%; float: left;" src="./images/noise_1.png"></img>
-    </div>
+    <table>
+        <tr>
+            <td>
+                <img class = "table_img" src="./images/noise_4.png"></img>
+            </td>
+        <td>
+                <img class = "table_img" src="./images/noise_3.png"></img>
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                <img class = "table_img" src="./images/noise_2.png"></img>
+            </td>
+            <td>
+                <img class = "table_img" src="./images/noise_1.png"></img>
+            </td>
+        </tr>
+    </table>
 
     <p style="float:left;">Okay, so I'll admit, it's not exactly what I was going for. But I like it! But what is going
         on here? Well, I was already taking a float and rounding it as my input.
-        And since I knew that <a href="https://jackschaedler.github.io/circles-sines-signals/sincos.html">sine multiplied by time makes circles</a>,
+        And since I knew that <a href="https://jackschaedler.github.io/circles-sines-signals/sincos.html">sine
+            multiplied by time makes circles</a>,
         I thought I'd use <em>math.sin</em> to make my noise, I dunno, circlier, or swirlier, something.
     </p>
 
     <p>So, I took my table indexes, multiplied them by time, and calculated the sine, like so:
-        <em style = "background-color: darkgray;">math.sin(os.clock() * i * j)</em>
-    and immediately started getting some interesting stuff.</p>
+        <em style="background-color: darkgray;">math.sin(os.clock() * i * j)</em>
+        and immediately started getting some interesting stuff.
+    </p>
 
-    <video style = "margin-left: 15%;" width = "70%" loop autoplay muted>
-    <source src= "./videos/art_1.mp4" type="video/mp4">
+    <video class = "art_video" loop autoplay muted>
+        <source src="./videos/art_1.mp4" type="video/mp4">
     </video>
 
     <p>After that, I just started experimenting with different numbers, adding colors, changing shapes, etc.</p>
 
-    <video style = "margin-left: 15%;" width = "70%" loop autoplay muted>
-        <source src= "./videos/art_2.mp4" type="video/mp4">
-        </video>
-
-    <video style = "margin-left: 15%;" width = "70%" loop autoplay muted>
-        <source src= "./videos/art_5.mp4" type="video/mp4">
+    <video class = "art_video" loop autoplay muted>
+        <source src="./videos/art_2.mp4" type="video/mp4">
     </video>
 
-    <video style = "margin-left: 15%;" width = "70%" loop autoplay muted>
-        <source src= "./videos/art_3.mp4" type="video/mp4">
+    <video class = "art_video" loop autoplay muted>
+        <source src="./videos/art_5.mp4" type="video/mp4">
     </video>
 
-    <video style = "margin-left: 15%;" width = "70%" loop autoplay muted>
-        <source src= "./videos/art_6.mp4" type="video/mp4">
+    <video class = "art_video" loop autoplay muted>
+        <source src="./videos/art_3.mp4" type="video/mp4">
     </video>
 
-    <p>Okay, so I haven't gotten a call from the fine folks at the Guggenheim yet. But that's okay. Remember, you're not failing <em>to</em> learn if you're
-    failing <strong>to</strong> learn! Oh wait, without inflection, that's kind of ambiguous. I mean, failing in order to learn - not learning to fail, er,
-     learn to... fool me... you can't get fooled again. Writing fail :P</p>
+    <video class = "art_video" loop autoplay muted>
+        <source src="./videos/art_6.mp4" type="video/mp4">
+    </video>
 
-    <p style = "padding-bottom: 5%">Hope you've enjoyed reading this article as much as I enjoyed writing it, see you next time!</p>
+    <p>Okay, so I haven't gotten a call from the fine folks at the Guggenheim yet. But that's okay. Remember, you're not
+        failing <em>to</em> learn if you're
+        failing <strong>to</strong> learn! Oh wait, without inflection, that's kind of ambiguous. I mean, failing in
+        order to learn - not learning to fail, er,
+        learn to... fool me... you can't get fooled again. Writing fail :P</p>
+
+    <p style="padding-bottom: 5%">Hope you've enjoyed reading this article as much as I enjoyed writing it, see you next
+        time!</p>
 
     <script src="./main.js"></script>
 </body>
