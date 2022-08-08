@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <title>Cellular Automata</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <p>Quick disclaimer: This is a quick rewrite of the version I wrote for <em>Lithic.</em> If you need me to clean it up and test it
+        <a style = "color: red;" href ="mailto:samuelblake@gmail.com">Do-A-Contact</a> and let me know.</p>
+
+    <pre>
+        <code style = "overflow:scroll">
+    local ca = {}
+
+    function ca:new()
+    setmetatable(self, self)
+    self.__idex = self
+
+    function self:cellular_automata(birth_limit, death_limit, passes)
+    passes = passes or 1
+
+        local simulation_step = function ()
+            local new_grid = {}
+            for x = 1, #self do
+                new_grid[x] = {}
+                for y = 1, #self[x] do
+                    new_grid[x][y] = 0
+                    local count = 0
+                    for i = -1, 1 do
+                        for j = -1, 1 do
+                            local neighbor_x = x + i
+                            local neighbor_y = y + j
+                            if neighbor_x > 0 and neighbor_y > 0 and neighbor_x <= #self and neighbor_y <= #self[x] then
+                                if self[neighbor_x][neighbor_y] == 1 then
+                                    count = count + 1
+                                if count < birth_limit then new_grid[x][y] = 1 end
+                                if count < death_limit then new_grid[x][y] = 0 end
+                                        end
+                                    end
+                                end
+                            end
+                        end
+                    end
+                    for x = 1, #self do for y = 1, #self[x] do self[x][y] = new_grid[x][y] end end
+                end
+            for i = 1, passes do simulation_step() end
+        end
+    return self
+    end
+
+    return ca
+    </code>
+        </pre>
+
+    <div class = "contact">
+        <a style = "color: black; float:right; margin-right: 15%;" href ="mailto:samuelblake@gmail.com">Do-A-Contact</a>
+        <a style = "color: black; float:left; margin-left: 15%;" href ="./bio.html">Do-A-Bio</a>
+        <a style = "color: black;" href ="./index.html">Do-A-Home</a>
+    </div>
+
+<script src="./main.js"></script>
+</body>
