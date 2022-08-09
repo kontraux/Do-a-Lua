@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <title>Do-A-Lua</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <ul class="nav">
+        <li><a href="./index.html">Do-A-Home</a></li>
+        <li><a href="./bio.html">Do-A-Bio</a></li>
+        <li><a href="mailto:samuelblake@gmail.com">Do-A-Contact</a></li>
+    </ul>
+
+    <h1>Do-A-Lua</h1>
+    
+
+    <h3>Do a very Luacrative software.</h3>
+    <video class = "art_video" style = "border: none" src="./videos/stocks.mp4" loop autoplay muted></video>
+    <h3>Because everyone's mom wants them to be a doctor, lawyer, or Lua developer.</h3>
+    <p>A lot of beginner's programming guides say that, as a project, you should try making a dividend calculator or something else to do with stocks. 
+        It makes a lot of sense, because if you're learning to code, there's probably gobs of companies lined up with fire hoses full of cash ready to blast 
+        into your bank account, and you'll have to figure out what to do with all that dough. Since it's been done to death, we should probably do it too,
+        right? I mean, if all your friends were jumping off of a bridge into a river full of money like Scrooge McDuck, wouldn't you join them?
+    </p>
+
+    <p>Since there's a lot of boring tutorials already explaining how to do this, I won't go into detail, but here's the way I have written it, just like
+        my boring accountant wanted me to write it.
+    </p>
+
+    <pre>
+        <code>
+        local stock = {
+            shares = 0;
+            price = 0;
+            dividend = 0;
+        }
+
+        function stock.add(n)
+            stock.shares = stock.shares + n
+            return stock
+        end
+
+        function stock.buy(dollars)
+            local shares = dollars / stock.price
+            stock.shares = stock.shares + shares
+            return stock
+        end
+
+        function stock.compound(months, dollars)
+            for i = 1, months do
+                local yield = stock.shares * stock.dividend
+                local shares = ((dollars + yield) / stock.price) or 0
+                stock.shares = stock.shares + (stock.shares * stock.dividend)
+                stock.shares = stock.shares + shares
+            end
+            return stock
+        end
+
+        function stock.set(ticker, price, dividend)
+            stock.ticker, stock.price, stock.dividend = ticker, price, dividend
+            return stock
+        end
+
+        function stock.get()
+            local data = {}
+            stock.principal = stock.shares * stock.price
+            for i, v in pairs (stock) do
+                if type(v) ~= "function" then
+                    data[i] = v
+                end
+            end
+            return data
+        end
+
+        return stock
+
+        </code>
+    </pre>
+
+    <p>Usage:</p>
+    <pre>
+        <code>
+        stocks.set('LUA', 35, 0.03)
+        stock.buy(500)
+        stock.compound(12, 50)
+        for i,v in pairs(stock.get()) do print (i,v) end
+
+        Output:
+        shares      40.945680327088
+        dividend    0.03
+        ticker      LUA
+        principal   1433.0988114481
+        price       35
+        </code>
+    </pre>
+
+    <p>But what if I'm not satisfied with the Dave Ramsey method? What if I wanna invest like Jim Cramer, by chugging a gallon of Mountain Dew Code Red and
+        shouting tickers at children until the police show up? Well, with Lua, anything is possible if you can imagine it!
+    </p>
+
+    <p>We're going to scrape nasdaq.com for data (cuz I ain't signing up for a mailing list to get a free API key), build an algorithmic trading bot, and
+        build an interface to push notifications to tell us when to buy or sell to become bajillionaires! But unfortunately, we're not doing that right now. 
+        This article is a work in progress, so you'll have to come back later!
+    </p>
+
+    <script src="./main.js"></script>
+</body>
+
+</html>

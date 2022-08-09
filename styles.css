@@ -11,6 +11,8 @@ body {
     font-family: 'Courier New', Courier, monospace;
     background-color: black;
     color: white;
+    margin-left:5%;
+    margin-right:5%;
 }
 
 .light_mode {
@@ -150,9 +152,9 @@ video {
 }
 
 .art_video {
-    width: 50%;
-    margin-left: 25%;
-    margin-right: 25%;
+    width: 70%;
+    margin-left: 15%;
+    margin-right: 15%;
     margin-bottom: 2.5em;
     margin-top: 2.5em;
 }
