@@ -18,7 +18,6 @@ body {
     color: black;
 }
 
-
 .home_box {
     padding: 2em;
 }
@@ -27,7 +26,7 @@ h1 {
     font-family: 'Courier New', Courier, monospace;
     font-size: 2em;
     font-weight:100;
-    padding-top: 0.5em;
+    padding-top: 1em;
     margin-bottom: 0;
     text-align: center;
 }
@@ -54,23 +53,17 @@ h3 {
 }
 
 p {
-    display: block;
     font-size: 1em;
+    padding-bottom: 5%;
     margin-right: 15%;
     margin-left: 15%;
-}
-
-
-
-.test a {
-    list-style:decimal;
-    margin: auto;
 }
 
 a {
     font-size: 1em;
     color: red;
 }
+
 
 
 a:visited {
@@ -99,11 +92,12 @@ code {
 }
 
 li {
-    padding: 15px;
-    display: inline;
+
+    display: inline-block;
 }
 
 li a {
+    font-size: 1.5em;
     color: black;
     font-weight: 900;
 }
@@ -117,7 +111,6 @@ li a:visited {
     position: fixed;
     top: 0;
     left: 0;
-    margin: 0;
     padding: 0;
     border: 2px solid red;
     background-color: red;
