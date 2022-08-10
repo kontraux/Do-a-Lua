@@ -3,7 +3,6 @@ html {
     height: 100%;
 }
 
-
 body {
     font-family: 'Courier New', Courier, monospace;
     background-color: black;
@@ -20,7 +19,7 @@ body {
 }
 
 .light_mode {
-    font-family: 'Courier New', Courier, monospace;
+    font-family: 'Times New Roman', Times, serif;
     background-color: whitesmoke;
     color: black;
 }
@@ -75,7 +74,6 @@ h3 {
 }
 
 p {
-    font-weight: 300;
     padding-bottom: 1em;
     font-size: 1em;
     margin-right: 15%;
@@ -187,4 +185,19 @@ video {
     width: 250px;
     height:300px;
     margin: auto;
+}
+
+
+@media only screen and (max-width: 600) {
+    P {
+        margin-left: 0;
+        margin-right: 2%;
+    };
+    h1 {
+        margin-right: 2%;
+        margin-left: 2%
+    }
+    body {
+        background-color: blue;
+    }
 }
