@@ -6,15 +6,39 @@ html {
 
 body {
     font-family: 'Courier New', Courier, monospace;
-    background-color: black;
-    color: white;
-    margin-left:5%;
-    margin-right:5%;
+}
+
+#theme {
+    background-color: red;
+    border: none;
+}
+
+#theme:hover {
+    cursor: pointer;
 }
 
 .light_mode {
-    background-color: white;
+    font-family: 'Courier New', Courier, monospace;
+    background-color: whitesmoke;
     color: black;
+}
+.light_mode a {
+    color: darkblue;
+}
+.light_mode li a {
+    color: black;
+}
+.light_mode li a:visited {
+    color: black;
+}
+.light_mode a:visited {
+    color: darkblue;
+}
+
+
+.dark_mode {
+    background-color: black;
+    color: white;
 }
 
 .home_box {
@@ -22,7 +46,6 @@ body {
 }
 
 h1 {
-    font-family: 'Courier New', Courier, monospace;
     font-size: 2em;
     font-weight:100;
     padding-top: 1em;
@@ -51,6 +74,7 @@ h3 {
 }
 
 p {
+    font-weight: 300;
     padding-bottom: 1em;
     font-size: 1em;
     margin-right: 15%;
@@ -61,8 +85,6 @@ a {
     font-size: 1em;
     color: red;
 }
-
-
 
 a:visited {
     color:red;
@@ -128,12 +150,11 @@ table {
     margin-bottom: 5%; 
     margin-left: 15%; 
     margin-right: 15%; 
-    border: 2px double red; 
+    border: 3px solid red; 
     width:auto;
 }
 
 .warning_text {
-    color: white; 
     font-style: italic; 
     margin: 1%; 
     text-align: center;
