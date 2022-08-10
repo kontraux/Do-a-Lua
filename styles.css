@@ -76,8 +76,8 @@ h3 {
 p {
     padding-bottom: 1em;
     font-size: 1em;
-    margin-right: 15%;
-    margin-left: 15%;
+    /* margin-right: 15%;
+    margin-left: 15%; */
 }
 
 a {
@@ -90,9 +90,9 @@ a:visited {
 }
 
 img {
-    width: 70%;
-    margin-right: 15%;
-    margin-left: 15%;
+    width: 100%;
+    /* margin-right: 15%;
+    margin-left: 15%; */
     padding-top: 1em;
     padding-bottom: 1em;
 }
@@ -169,9 +169,9 @@ video {
 }
 
 .art_video {
-    width: 70%;
-    margin-left: 15%;
-    margin-right: 15%;
+    width: 100%;
+    /* margin-left: 15%;
+    margin-right: 15%; */
     margin-bottom: 2.5em;
     margin-top: 2.5em;
 }
@@ -187,16 +187,20 @@ video {
     margin: auto;
 }
 
+.card {
+    width: 70%;
+    margin: auto;
+}
 
-@media only screen and (max-width: 600) {
-    P {
-        margin-left: 0;
-        margin-right: 2%;
-    };
-    h1 {
+@media only screen and (max-width: 600px) {
+    .card {
+    width: 95%;
+    margin: auto;
+}
+    /* h1 {
         margin-right: 2%;
         margin-left: 2%
-    }
+    } */
     body {
         background-color: blue;
     }
