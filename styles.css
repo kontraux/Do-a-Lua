@@ -6,6 +6,8 @@ html {
 
 body {
     font-family: 'Courier New', Courier, monospace;
+    background-color: black;
+    color: white;
 }
 
 #theme {
@@ -34,7 +36,6 @@ body {
 .light_mode a:visited {
     color: darkblue;
 }
-
 
 .dark_mode {
     background-color: black;

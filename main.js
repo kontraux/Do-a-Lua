@@ -1,5 +1,5 @@
-window.onload = get_theme()
 var mode = sessionStorage.getItem("theme", mode) || "dark_mode"
+window.onload = get_theme()
 
 function get_theme() {
     document.body.classList.remove("theme", mode)
