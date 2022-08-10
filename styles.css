@@ -3,9 +3,6 @@ html {
     height: 100%;
 }
 
-#theme:hover {
-    color: red;
-}
 
 body {
     font-family: 'Courier New', Courier, monospace;
@@ -166,5 +163,6 @@ video {
 
 .container {
     width: 250px;
+    height:300px;
     margin: auto;
 }
