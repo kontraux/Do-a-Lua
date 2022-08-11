@@ -37,6 +37,10 @@ body {
     font-size: 1.1em;
     background-color: whitesmoke;
     color: black;
+    background-color: #e5e5f7;
+    background-image:  linear-gradient(#a4a5ae 2px, transparent 2px), linear-gradient(90deg, #a4a5ae 2px, transparent 2px), linear-gradient(#a4a5ae 1px, transparent 1px), linear-gradient(90deg, #a4a5ae 1px, #e5e5f7 1px);
+    background-size: 50px 50px, 50px 50px, 10px 10px, 10px 10px;
+    background-position: -2px -2px, -2px -2px, -1px -1px, -1px -1px;
 }
 .light_mode a {
     color: darkblue;
@@ -217,7 +221,20 @@ video {
 
 .light_mode .wrapper {
     background-color: white;
+}
 
+.boids {
+    position: absolute;
+    background-color: white;
+    height: 5px;
+    width: 5px;
+    top: 0;
+    left: 0;
+    border-radius: 50%;
+    display: inline-block;
+}
+.light_mode .boids {
+    background-color: black;
 }
 
 @media only screen and (max-width: 800px) {
@@ -225,4 +242,3 @@ video {
         margin: 5%
     }
 }
-
