@@ -4,6 +4,7 @@ html {
 }
 
 body {
+    height: 100%;
     font-family: 'Courier New', Courier, monospace;
     background-color: black;
     color: white;
