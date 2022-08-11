@@ -4,12 +4,26 @@ html {
 }
 
 body {
+    height: 100%;
     font-family: 'Courier New', Courier, monospace;
     background-color: black;
     color: white;
+    background-image:  linear-gradient(30deg, #2b2a28 12%, transparent 12.5%, transparent 87%, #2b2a28 87.5%, #2b2a28), linear-gradient(150deg, #2b2a28 12%, transparent 12.5%, transparent 87%, #2b2a28 87.5%, #2b2a28), linear-gradient(30deg, #2b2a28 12%, transparent 12.5%, transparent 87%, #2b2a28 87.5%, #2b2a28), linear-gradient(150deg, #2b2a28 12%, transparent 12.5%, transparent 87%, #2b2a28 87.5%, #2b2a28), linear-gradient(60deg, #2b2a2877 25%, transparent 25.5%, transparent 75%, #2b2a2877 75%, #2b2a2877), linear-gradient(60deg, #2b2a2877 25%, transparent 25.5%, transparent 75%, #2b2a2877 75%, #2b2a2877);
+    background-size: 20px 35px;
+    background-position: 0 0, 0 0, 10px 18px, 10px 18px, 0 0, 10px 18px;
+    background-attachment: fixed;
 }
 
 #theme {
+    background-color: red;
+    border: none;
+}
+.light_mode #theme {
+    background-color: slategray;
+    border: none;
+}
+
+.dark_mode #theme {
     background-color: red;
     border: none;
 }
@@ -20,8 +34,13 @@ body {
 
 .light_mode {
     font-family: 'Times New Roman', Times, serif;
+    font-size: 1.1em;
     background-color: whitesmoke;
     color: black;
+    background-color: #e5e5f7;
+    background-image:  linear-gradient(#a4a5ae 2px, transparent 2px), linear-gradient(90deg, #a4a5ae 2px, transparent 2px), linear-gradient(#a4a5ae 1px, transparent 1px), linear-gradient(90deg, #a4a5ae 1px, #e5e5f7 1px);
+    background-size: 50px 50px, 50px 50px, 10px 10px, 10px 10px;
+    background-position: -2px -2px, -2px -2px, -1px -1px, -1px -1px;
 }
 .light_mode a {
     color: darkblue;
@@ -43,14 +62,15 @@ body {
 
 .home_box {
     padding: 2em;
+
 }
 
 h1 {
     font-size: 2em;
     font-weight:100;
-    padding-top: 1em;
     margin-bottom: 0;
     text-align: center;
+    
 }
 
 h2 {
@@ -58,8 +78,6 @@ h2 {
     text-align: center;
     font-weight: 100;
     font-style: italic;
-    margin-right: 15%;
-    margin-left: 15%;
     margin-top: 0;
 }
 
@@ -69,15 +87,11 @@ h3 {
     text-align: center;
     font-weight: 100;
     font-style: italic;
-    margin-right: 15%;
-    margin-left: 15%;
 }
 
 p {
     padding-bottom: 1em;
     font-size: 1em;
-    /* margin-right: 15%;
-    margin-left: 15%; */
 }
 
 a {
@@ -90,24 +104,30 @@ a:visited {
 }
 
 img {
-    width: 100%;
-    /* margin-right: 15%;
-    margin-left: 15%; */
+    max-width: 100%;
+    margin: auto;
     padding-top: 1em;
     padding-bottom: 1em;
+}
+
+.light_mode pre code {
+    background-color: slategray;
+    box-shadow: -3px 5px 10px 5px lightgray, 3px 5px 10px 5px lightgray;
+
 }
 
 pre code {
     margin: auto;
     background-color: gray;
     display: block;
-    margin-right: 15%;
-    margin-left: 15%;
     overflow-x: auto;
+    box-shadow: 5px 5px 10px 5px #2b2a28, -5px 5px 10px 5px #2b2a28;
+
   }
 
 code {
     height: 1%;
+    opacity: 95%;
 }
 
 li {
@@ -128,34 +148,35 @@ li a:visited {
 
 .nav {
     position: fixed;
+    z-index: 1;
     top: 0;
     left: 0;
-    padding: 0;
-    border: 2px solid red;
-    background-color: red;
+    padding: 1%;
     width: 100%;
     margin: auto;
     list-style-type: none;
     text-align: center;
+    background-color: red;
+    border-bottom: 2px solid darkred;
+    box-shadow: 3px 0px 4px 2px black;
+}
+
+.light_mode .nav {
+    background-color: slategray;
+    border-bottom: 2px solid black;
 }
 
 table {
-    margin-left: 15%;
-    margin-right: 15%;
+    margin: auto;
 }
 
 .warning_box {
     display:block; 
-    margin-bottom: 5%; 
-    margin-left: 15%; 
-    margin-right: 15%; 
     border: 3px solid red; 
-    width:auto;
 }
 
 .warning_text {
     font-style: italic; 
-    margin: 1%; 
     text-align: center;
 }
 
@@ -165,13 +186,11 @@ table {
 
 video {
     border: 2px solid white;
-    width: 98%;
+    margin: 0;
+    width: 100%;
 }
 
 .art_video {
-    width: 100%;
-    /* margin-left: 15%;
-    margin-right: 15%; */
     margin-bottom: 2.5em;
     margin-top: 2.5em;
 }
@@ -179,29 +198,47 @@ video {
 .table_img {
     margin: 0;
     width: 100%;
+    box-shadow: 0 0;
 }
 
 .container {
     width: 250px;
     height:300px;
     margin: auto;
+    box-shadow: 0, 0;
 }
 
-.card {
-    width: 70%;
-    margin: auto;
+.wrapper {
+    min-height: 100%;
+    background-color: black;
+    opacity: 100;
+    padding: 2%;
+    padding-top: 5%;
+    margin-left: 15%;
+    margin-right: 15%;
+    
 }
 
-@media only screen and (max-width: 600px) {
-    .card {
-    width: 95%;
-    margin: auto;
+.light_mode .wrapper {
+    background-color: white;
 }
-    /* h1 {
-        margin-right: 2%;
-        margin-left: 2%
-    } */
-    body {
-        background-color: blue;
+
+.boids {
+    position: absolute;
+    background-color: white;
+    height: 5px;
+    width: 5px;
+    top: 0;
+    left: 0;
+    border-radius: 50%;
+    display: inline-block;
+}
+.light_mode .boids {
+    background-color: black;
+}
+
+@media only screen and (max-width: 800px) {
+    .wrapper {
+        margin: 5%
     }
 }

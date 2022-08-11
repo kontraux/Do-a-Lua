@@ -3,13 +3,14 @@
 <html>
 
 <head>
-    <title>Object</title>
+    <title>Type</title>
     <link rel="stylesheet" href="styles.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 </head>
 
 <body>
+    <div class = "wrapper">
     <ul class="nav">
         <li><a href = "./index.html">Do-A-Home</a></li>
         <li><a href ="./bio.html">Do-A-Bio</a></li>
@@ -29,7 +30,7 @@
     <h3>Create an object.</h3>
 
         <p>Our object is going to start as... well, a table of course. So we'll make a <em>new</em> function, so that we can define <em>self.</em> In Lua,
-            there aren't true classes, so you just use a closure like this if you want to emulate one.
+            there aren't true classes, so you just use a function like this if you want to emulate one.
         </p>
 
     <pre>
@@ -60,11 +61,11 @@
 
     <p>I've heard it said that defining 'self' feels awkward if you're coming from an OOP language. But if you're coming from another language,
         that means you're already a coder, so you should be used to feeling awkward. You can always just pass 'self' in as an argument instead, if you
-        like how it looks, or use the colon operator like this <em style = "background-color: gray;">object:new()</em> 
+        like how it looks, or use the colon operator.</em> 
     </p>
 
     <h3>Return to monkey.</h3>
-    <p>Now we can write our monkey patch, which will also go inside the closure. They call it a monkey patch if you're overriding some default behavior, 
+    <p>Now we can write our monkey patch, which will be a closure. They call it a monkey patch if you're overriding some default behavior, 
         usually by modifying the standard library. <em>Programming in Lua</em> has an example of overloading the addition (+) operator to add sets together, 
         by changing the __add metamethod. Here, we don't need to do that, there isn't a __type metatable field, so we're just going to redefine the global 
         'type' standard library function.
@@ -138,4 +139,5 @@
     <p style="padding-bottom: 5%;">Hope you've enjoyed reading this article as much as I enjoyed writing it, see you next time!</p>
 
     <script src="./main.js"></script>
+</div>
 </body>

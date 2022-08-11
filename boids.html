@@ -10,18 +10,29 @@
 </head>
 
 <body>
+
+    <div class = "wrapper">
+
     <ul class="nav">
         <li><a href = "./index.html">Do-A-Home</a></li>
         <li><a href ="./bio.html">Do-A-Bio</a></li>
         <li><a href ="mailto:samuelblake@gmail.com">Do-A-Contact</a></li>
         <li><button id = "theme" onclick = "theme()">Theme</button></li>
-
     </ul>
 
     <h1>Do-A-Lua</h1>
 
     <h2>Boid Avoidance</h2>
-    
+    <div id="canvas">
+    <div class = "boids"></div>
+    <div class = "boids"></div>
+    <div class = "boids"></div>
+    <div class = "boids"></div>
+    <div class = "boids"></div>
+    <div class = "boids"></div>
+    <div class = "boids"></div>
+    </div>
+
     <h3>Enter: Fictus Avis</h3>
 
     <p>Ah, the majestic boid. Soaring high above the canopy-ish thing, she searches for a place to build something similar to a nest in which to lay her 
@@ -103,7 +114,7 @@
     <p>Now that we've given the breath of life to these noble creatures, let's behold them in all their glory:
     </p>
 
-    <img src = "./images/boids_1.PNG" style="margin-left: 15%; margin-right: 15%; width: 70%;">
+    <img src = "./images/boids_1.PNG">
 
     <p style = "margin-top: 3%">Ugh, I hate them! They're horrible, they just sit there. Well, while we've got them soaking in the brine and the oven is
     preheating to 425, let's see if we can't make them a little more animated with a little boid brain surgery. Let's start adding rules, so our update
@@ -152,7 +163,7 @@
     </p>
 
     <p>Output:</p>
-    <video src="./videos/boids_1.mp4" controls style = "margin-left:15%; width: 70%; border: 2px solid white"></video>
+    <video src="./videos/boids_1.mp4" controls></video>
 
     <p>I'm a computer programmer, I've never been outside, so I really can't say whether this looks like a flock of birds. But I have
         a feeling that we're already going off the rails a bit. First, let's point out that there is some success here, the boids do appear
@@ -193,7 +204,7 @@
 
     <p>Output:</p>
 
-    <video src="./videos/boids_2.mp4" controls style = "margin-left:15%; width: 70%; border: 2px solid white"></video>
+    <video src="./videos/boids_2.mp4" controls></video>
     <p>So, it's a little hard to tell in the video. Note the FPS counter I have added, I was troubleshooting this, it's just
         chugging a bit while I'm recording. I get ~450 FPS without OBS running in the background, and the boids move a lot more smoothly.
     </p>
@@ -248,7 +259,7 @@
         the boids momentarily 'forget' their movement goals in order to avoid the collision. Nothing could possibly go wrong:
     </p>
 
-    <video src="./videos/boids_3.mp4" controls style = "margin-left:15%; width: 70%; border: 2px solid white"></video>
+    <video src="./videos/boids_3.mp4" controls></video>
 
     <p>What in the Sam Hill?!</p>
 
@@ -261,13 +272,13 @@
 
     <p>Still, it's kind of neat in a way. Let's run the simulaton a few more times.</p>
 
-    <video src="./videos/boids_4.mp4" controls style = "margin-left:15%; width: 70%; border: 2px solid white"></video>
+    <video src="./videos/boids_4.mp4" controls></video>
 
     <p>To stop them from freezing, let's bring our vector 3 into play. Instead of swapping our boid's v1 with our neighbor's v2, let's take our neighbor's
         v1, multiply it by -1, and that will be our boid's v3. This should make them move in the opposite direction of nearby boids.
     </p>
 
-    <video src="./videos/boids_5.mp4" controls style = "margin-left:15%; width: 70%; border: 2px solid white"></video>
+    <video src="./videos/boids_5.mp4" controls></video>
 
     <p>Now they either just float together, or bounce off of each other like pingpong balls. I tried a bunch of different things here, all with varying
         degrees of success. Nothing worked perfectly. Have a look:
@@ -306,12 +317,14 @@
 
     <h3>Rule 0 the 2nd: Cover up your mistakes and go into denial.</h3>
     <p>And just like that, our confetti simulator works perfectly!</p>
-    <video src="./videos/boid_confetti.mp4" controls style = "margin-left:15%; width: 70%; border: 2px solid white"></video>
+    <video src="./videos/boid_confetti.mp4" controls></video>
 
 
     <p style="padding-bottom: 5%;">Hope you've enjoyed reading this article as much as I enjoyed writing it, see you next time!</p>
 
+</div>
     <script src="./main.js"></script>
+    <script src="./boids.js"></script>
 </body>
 
 </html>
