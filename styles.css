@@ -8,6 +8,9 @@ body {
     font-family: 'Courier New', Courier, monospace;
     background-color: black;
     color: white;
+    background-image:  linear-gradient(30deg, #2b2a28 12%, transparent 12.5%, transparent 87%, #2b2a28 87.5%, #2b2a28), linear-gradient(150deg, #2b2a28 12%, transparent 12.5%, transparent 87%, #2b2a28 87.5%, #2b2a28), linear-gradient(30deg, #2b2a28 12%, transparent 12.5%, transparent 87%, #2b2a28 87.5%, #2b2a28), linear-gradient(150deg, #2b2a28 12%, transparent 12.5%, transparent 87%, #2b2a28 87.5%, #2b2a28), linear-gradient(60deg, #2b2a2877 25%, transparent 25.5%, transparent 75%, #2b2a2877 75%, #2b2a2877), linear-gradient(60deg, #2b2a2877 25%, transparent 25.5%, transparent 75%, #2b2a2877 75%, #2b2a2877);
+    background-size: 20px 35px;
+    background-position: 0 0, 0 0, 10px 18px, 10px 18px, 0 0, 10px 18px;
 }
 
 #theme {
@@ -117,6 +120,7 @@ pre code {
 
 code {
     height: 1%;
+    opacity: 95%;
 }
 
 li {
@@ -197,18 +201,20 @@ video {
 }
 
 .wrapper {
-    height: 100%;
+    min-height: 100%;
     background-color: black;
+    opacity: 100;
     padding: 2%;
     padding-top: 5%;
     margin-left: 15%;
     margin-right: 15%;
     box-shadow: 5px 5px 10px 5px #2b2a28, -5px 5px 10px 5px #2b2a28;
+    
 }
 
 .light_mode .wrapper {
     background-color: white;
-    box-shadow: -5px 5px 10px 5px lightgray, 5px 5px 10px 5px lightgray;
+    /* box-shadow: -5px 5px 10px 5px lightgray, 5px 5px 10px 5px lightgray; */
 
 }
 
@@ -217,3 +223,4 @@ video {
         margin: 5%
     }
 }
+
