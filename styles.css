@@ -8,7 +8,10 @@ body {
     background-color: black;
     color: white;
 }
-
+#theme {
+    background-color: red;
+    border: none;
+}
 .light_mode #theme {
     background-color: lightblue;
     border: none;
@@ -131,10 +134,10 @@ li a:visited {
     margin: auto;
     list-style-type: none;
     text-align: center;
+    background-color: red;
 }
 
 .dark_mode .nav {
-    background-color: red;
     border: 2px solid red;
 }
 .light_mode .nav {
