@@ -11,28 +11,29 @@
 
 
 <body>
+    <div class="wrapper">
+        <ul class="nav">
+            <li><a href="./index.html">Do-A-Home</a></li>
+            <li><a href="./bio.html">Do-A-Bio</a></li>
+            <li><a href="mailto:samuelblake@gmail.com">Do-A-Contact</a></li>
+            <li><button id="theme" onclick="theme()">Theme</button></li>
+        </ul>
 
-    <ul class="nav">
-        <li><a href="./index.html">Do-A-Home</a></li>
-        <li><a href="./bio.html">Do-A-Bio</a></li>
-        <li><a href="mailto:samuelblake@gmail.com">Do-A-Contact</a></li>
-        <li><button id = "theme" onclick = "theme()">Theme</button></li>
-    </ul>
 
+        <h1>Do-A-Lua</h1>
+        <h2>Do an art (by accident).</h2>
+        <div class="warning_box">
+            <p class="warning_text">Photosensitivity warning: Images and videos on this page may trigger seizures in
+                photosensitive individuals. Viewer discretion is advised. <a href="./index.html">Return to homepage.</a>
+        </div>
+        <p>A lot of algorithms used for procedural generation need to start with noise, as represented by numbers in a
+            random or semi-random pattern on a grid.
+            Starting out, I didn't need anything special, random noise was good enough, so I wrote my noise function
+            like
+            this:
+        </p>
 
-    <h1>Do-A-Lua</h1>
-    <h2>Do an art (by accident).</h2>
-    <div class="warning_box">
-        <p class="warning_text">Photosensitivity warning: Images and videos on this page may trigger seizures in
-            photosensitive individuals. Viewer discretion is advised. <a href="./index.html">Return to homepage.</a>
-    </div>
-    <p>A lot of algorithms used for procedural generation need to start with noise, as represented by numbers in a
-        random or semi-random pattern on a grid.
-        Starting out, I didn't need anything special, random noise was good enough, so I wrote my noise function like
-        this:
-    </p>
-
-    <pre>
+        <pre>
         <code>
     local noise = {}
 
@@ -58,108 +59,119 @@
         </code>
     </pre>
 
-    <p>Run of the mill, (pseudo)random noise.</p>
-    <img src="./images/random_noise.png"></img>
+        <p>Run of the mill, (pseudo)random noise.</p>
+        <img src="./images/random_noise.png"></img>
 
-    <p>Using this as a base can get decent results. Here's what it looks like after applying cellular automata, which I
-        got from
-        <a
-            href="https://gamedevelopment.tutsplus.com/tutorials/generate-random-cave-levels-using-cellular-automata--gamedev-9664">here</a>
-        and transcribed into Lua from (Java? C++? It occurs to me I don't know what language it is.)
-    </p>
+        <p>Using this as a base can get decent results. Here's what it looks like after applying cellular automata,
+            which I
+            got from
+            <a
+                href="https://gamedevelopment.tutsplus.com/tutorials/generate-random-cave-levels-using-cellular-automata--gamedev-9664">here</a>
+            and transcribed into Lua from (Java? C++? It occurs to me I don't know what language it is.)
+        </p>
 
-    <img src="./images/cellular_automata.png"></img>
+        <img src="./images/cellular_automata.png"></img>
 
-    <p>It looks really pretty good to me. It could definitely be islands, forests, or caverns, and depending on how you
-        use it, there are of course
-        many ways to refine it from here. Here's my <a href="./cellular_automata.html">implementation</a> in case you
-        want to see it. But there is a
-        problem using this to generate a lot of content, and it's that it is very <em>uniform.</em> Unless I'm changing
-        other inputs on my algorithms,
-        I'll always get something very similar. I'll never get a large forest clearing, or a single winding trail, or
-        sparse trees dotting the
-        landscape. It will always just be this blobby structure, more or less.
-    </p>
+        <p>It looks really pretty good to me. It could definitely be islands, forests, or caverns, and depending on how
+            you
+            use it, there are of course
+            many ways to refine it from here. Here's my <a href="./cellular_automata.html">implementation</a> in case
+            you
+            want to see it. But there is a
+            problem using this to generate a lot of content, and it's that it is very <em>uniform.</em> Unless I'm
+            changing
+            other inputs on my algorithms,
+            I'll always get something very similar. I'll never get a large forest clearing, or a single winding trail,
+            or
+            sparse trees dotting the
+            landscape. It will always just be this blobby structure, more or less.
+        </p>
 
-    <p>Generating "good" noise is apparently a huge topic unto itself, as it's used for more than procedural generation.
-        It's used
-        for shaders, movie CGI, scientific
-        simulations, and other stuff. And while there's lots of algorithms already out there- Guassian noise, Perlin
-        noise, Brownian noise, Worley noise...
-        I didn't really want to use them. Partly because I don't understand them (recursive filters? hardcoded
-        permutation tables?) and
-        partly because I get sick of people telling me "don't reinvent the wheel." Look, if I didn't enjoy writing my
-        own code, I'd be
-        using Unity.
-    </p>
-    <h3>Make some noise in the hizzy!</h3>
+        <p>Generating "good" noise is apparently a huge topic unto itself, as it's used for more than procedural
+            generation.
+            It's used
+            for shaders, movie CGI, scientific
+            simulations, and other stuff. And while there's lots of algorithms already out there- Guassian noise, Perlin
+            noise, Brownian noise, Worley noise...
+            I didn't really want to use them. Partly because I don't understand them (recursive filters? hardcoded
+            permutation tables?) and
+            partly because I get sick of people telling me "don't reinvent the wheel." Look, if I didn't enjoy writing
+            my
+            own code, I'd be
+            using Unity.
+        </p>
+        <h3>Make some noise in the hizzy!</h3>
 
-    <p>So I set out to make some noise. Since I'm such a smart guy- <em>a wise man; a shaman,</em> I decided the best
-        way to do this would be to start
-        punching numbers in randomly. And of course, what I got was... unexpected?</p>
+        <p>So I set out to make some noise. Since I'm such a smart guy- <em>a wise man; a shaman,</em> I decided the
+            best
+            way to do this would be to start
+            punching numbers in randomly. And of course, what I got was... unexpected?</p>
 
-    <table>
-        <tr>
-            <td>
-                <img class = "table_img" src="./images/noise_4.png"></img>
-            </td>
-        <td>
-                <img class = "table_img" src="./images/noise_3.png"></img>
-            </td>
-        </tr>
+        <table>
+            <tr>
+                <td>
+                    <img class="table_img" src="./images/noise_4.png"></img>
+                </td>
+                <td>
+                    <img class="table_img" src="./images/noise_3.png"></img>
+                </td>
+            </tr>
 
-        <tr>
-            <td>
-                <img class = "table_img" src="./images/noise_2.png"></img>
-            </td>
-            <td>
-                <img class = "table_img" src="./images/noise_1.png"></img>
-            </td>
-        </tr>
-    </table>
+            <tr>
+                <td>
+                    <img class="table_img" src="./images/noise_2.png"></img>
+                </td>
+                <td>
+                    <img class="table_img" src="./images/noise_1.png"></img>
+                </td>
+            </tr>
+        </table>
 
-    <p style="float:left;">Okay, so I'll admit, it's not exactly what I was going for. But I like it! But what is going
-        on here? Well, I was already taking a float and rounding it as my input.
-        And since I knew that the <a href="https://jackschaedler.github.io/circles-sines-signals/sincos.html">sine
-            function makes circles</a>,
-        I thought I'd use <em>math.sin</em> to make my noise, I dunno, circlier, or swirlier, something.
-    </p>
+        <p style="float:left;">Okay, so I'll admit, it's not exactly what I was going for. But I like it! But what is
+            going
+            on here? Well, I was already taking a float and rounding it as my input.
+            And since I knew that the <a href="https://jackschaedler.github.io/circles-sines-signals/sincos.html">sine
+                function makes circles</a>,
+            I thought I'd use <em>math.sin</em> to make my noise, I dunno, circlier, or swirlier, something.
+        </p>
 
-    <p>So, I took my table indexes, multiplied them by time, and calculated the sine, like so:
-        <em style="background-color: darkgray;">math.sin(os.clock() * i * j)</em>
-        and immediately started getting some interesting stuff.
-    </p>
+        <p>So, I took my table indexes, multiplied them by time, and calculated the sine, like so:
+            <em style="background-color: darkgray;">math.sin(os.clock() * i * j)</em>
+            and immediately started getting some interesting stuff.
+        </p>
 
-    <video class = "art_video" loop autoplay muted>
-        <source src="./videos/art_1.mp4" type="video/mp4">
-    </video>
+        <video class="art_video" loop autoplay muted>
+            <source src="./videos/art_1.mp4" type="video/mp4">
+        </video>
 
-    <p>After that, I just started experimenting with different numbers, adding colors, changing shapes, etc.</p>
+        <p>After that, I just started experimenting with different numbers, adding colors, changing shapes, etc.</p>
 
-    <video class = "art_video" loop autoplay muted>
-        <source src="./videos/art_2.mp4" type="video/mp4">
-    </video>
+        <video class="art_video" loop autoplay muted>
+            <source src="./videos/art_2.mp4" type="video/mp4">
+        </video>
 
-    <video class = "art_video" loop autoplay muted>
-        <source src="./videos/art_5.mp4" type="video/mp4">
-    </video>
+        <video class="art_video" loop autoplay muted>
+            <source src="./videos/art_5.mp4" type="video/mp4">
+        </video>
 
-    <video class = "art_video" loop autoplay muted>
-        <source src="./videos/art_3.mp4" type="video/mp4">
-    </video>
+        <video class="art_video" loop autoplay muted>
+            <source src="./videos/art_3.mp4" type="video/mp4">
+        </video>
 
-    <video class = "art_video" loop autoplay muted>
-        <source src="./videos/art_6.mp4" type="video/mp4">
-    </video>
+        <video class="art_video" loop autoplay muted>
+            <source src="./videos/art_6.mp4" type="video/mp4">
+        </video>
 
-    <p>Okay, so I haven't gotten a call from the fine folks at the Guggenheim yet. But that's okay. Remember, you're not
-        failing <em>to</em> learn if you're
-        failing <strong>to</strong> learn! Oh wait, without inflection, that's kind of ambiguous. I mean, failing in
-        order to learn - not learning to fail, er,
-        learn to... fool me... you can't get fooled again. Writing fail :P</p>
+        <p>Okay, so I haven't gotten a call from the fine folks at the Guggenheim yet. But that's okay. Remember, you're
+            not
+            failing <em>to</em> learn if you're
+            failing <strong>to</strong> learn! Oh wait, without inflection, that's kind of ambiguous. I mean, failing in
+            order to learn - not learning to fail, er,
+            learn to... fool me... you can't get fooled again. Writing fail :P</p>
 
-    <p style="padding-bottom: 5%">Hope you've enjoyed reading this article as much as I enjoyed writing it, see you next
-        time!</p>
-
+        <p style="padding-bottom: 5%">Hope you've enjoyed reading this article as much as I enjoyed writing it, see you
+            next
+            time!</p>
+    </div>
     <script src="./main.js"></script>
 </body>
