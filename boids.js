@@ -12,3 +12,4 @@ function boids() {
 }
 
 
+window.setInterval(boids, 100000)
