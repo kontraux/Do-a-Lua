@@ -6,9 +6,10 @@ function boids() {
         let r = 200 * Math.random();
         var w = window.innerWidth;
         var h = window.innerHeight;
-        boids[i].animate( [ { transform: `translateX(${w / 2 + r}px)` }, {transform: `translateY(${h / 2 - r}px)` } ], { duration: 4500 + r })
+        boids[i].animate( [ { transform: `translateX(${w / 1.5 + r}px)` }, {transform: `translateY(${h}px)` } ], { duration: 4500 + r })
         canvas.animate( [{ transform: 'rotate(80deg)' }], { duration: 5500 } )
     }
 }
 
 
+window.setInterval(boids, 100000)
