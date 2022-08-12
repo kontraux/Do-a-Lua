@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <title>projection</title>
+    <link rel="stylesheet" href="styles.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+</head>
+
+<body>
+    <div class = "wrapper">
+    <ul class="nav">
+        <li><a href="./index.html">Do-A-Home</a></li>
+        <li><a href="./bio.html">Do-A-Bio</a></li>
+        <li><a href="mailto:samuelblake@gmail.com">Do-A-Contact</a></li>
+        <li><button id = "theme" onclick = "theme()">Theme</button></li>
+    </ul>
+
+    <h1>Do-A-Lua</h1>
+
+    <h2>Do an axonometric projection.</h2>
+
+    <h3>Do a what?</h3>
+
+    <p>The term 'isometric' is more commonly used when referring to 2d videogames with a 3d perspective, also called 2.5d. To be technically correct,
+        isometric projection uses 30 degree parallel angles, and it's a type of axonometric projection. I'll use the term axonometric because it's the
+        broader term, and it means we can draw the world at any angle we want. Yes, around this blog, we strive to be professional.
+    </p>
+
+    <p>We're going to use a coordinate system to draw on the screen. First, we are going to make a standard <em>x, y</em> grid. We can do this with
+    a double for loop to make a table of tables. The <em>x</em> is our row, and contains another table, <em>y,</em> which contains our values.</p>
+
+    <pre>
+        <code>
+            local map = {}
+
+            function map.new(rows, columns)
+                local grid = {}
+            
+                for x = 1, rows do
+                    grid[x] = {}
+                    for y = 1, columns do
+                        grid[x][y] = {}
+                    end
+                end
+                return grid
+            end
+            
+            
+            return map
+        </code>
+    </pre>
+
+    <p>Our grid, besides containing entries for values like sprite data, functions in its current state as our <em>Cartesian</em> coordinate system. The 
+    <em>y</em> axis maps to north and south, and <em>x</em> to east and west. The only other value we need to draw is the size of our tiles- we multiply
+    our indexes against the size of our tiles, subtract a margin, and then we have a <em>Cartesian</em> map.</p>
+
+    <pre>
+        <code>
+            local viewport = {}
+
+            local tilesize = 50
+            local margin = 2
+
+            function viewport.draw(map)
+                for x = 1, #map do
+                    for y = 1, #map[x] do
+                        love.graphics.rectangle("fill", x * tilesize, y * tilesize, tilesize - margin, tilesize - margin)
+                    end
+                end
+            end
+
+            return viewport
+        </code>
+    </pre>
+
+    <p>Output:</p>
+    <img class = "small_img" src = "images/projection_1.png"></img>
+
+    <p>This type of map will work perfectly for many games. If we were to draw our characters from above, as if we were looking directly down to the tops
+        of their heads, it would be called a top-down perspective. We could also draw them from the side to emulate perspective, and this would be called
+        orthographic projection. However, to achieve our slightly more sophisticated axonometric look, we will first need to rotate our grid by 45 degrees.
+    </p>
+    <img class = "small_img" src = "images/projection_2.png"></img>
+    <p>We've not only shifted our <em>x</em> and <em>y</em> axes used for drawing, but we've also shifted our <em>input</em> by 45 degrees. If our player
+    moves left, he is moving left and up, and if he moves down, then it is down and right. There are many ways to handle this, the least obvious but
+    perhaps best method is to do nothing. The player will quickly adapt to the new control scheme.</p>
+
+    <p>The next step now is to squash our <em>y</em> axis by 50%. This step is what causes our brains to perceive a <em>z</em> axis- that is, it gives
+    it depth.</p>
+    <img class = "small_img" src = "images/projection_3.png"></img>
+    <p>Here is how our viewport has changed:</p>
+    <pre>
+        <code>
+        function viewport.draw(map)
+            for x = 1, #map do
+                for y = 1, #map[x] do
+                    love.graphics.setColor(1,1,1,1)
+                    local cartx, carty = x * tilesize, y * tilesize
+                    local tileh, tilew = tilesize - margin, tilesize - margin
+                    love.graphics.origin()
+                    love.graphics.scale(1, 0.5)
+                    love.graphics.rotate(0.785398)
+                    love.graphics.translate(love.graphics.getWidth() / 2, -love.graphics.getHeight() / 4)
+                    love.graphics.rectangle("fill", cartx, carty, tileh, tilew)
+                end
+            end
+        end
+        </code>
+    </pre>
+
+    <p>This code won't actually be useful for us to make a game, unless we want to draw it using primitives. Instead, we can just draw our tile
+        sprites this way. But, since we are not rotating and squashing our drawings, we will need to find another way to rotate and squash our
+        coordinate system. To get our new axonometric coordinates, we must make a function to convert them from Cartesian.
+    </p>
+
+    <pre>
+        <code>
+    viewport.cart_to_axo = function (x, y)
+        local axox = (x - y) * (tilewidth / 2)
+        local axoy = (x + y) * (tileheight / 4)
+        return axox, axoy
+    end
+        </code>
+    </pre>
+
+    <p>Note that I've changed 'tilesize' to 'tilewidth' and 'tileheight'. Commonly, games with this perspective will have tiles that are twice as
+        tall as they are wide. If your player sprite is not short and squat, it will match tile sections, and sections of walls will match up 
+        without stacking, it just helps to standardize things across drawings and calculations. In this tutorial, the height and width of the tile
+        is equal.
+    </p>
+
+    <p>Most of the time software that game artists use, such as Photoshop, Krita, Aesperite, or Hexels, will have guide grids that can be set to
+        axonometric angles. While the standard isometric angle will call for 30 degrees, many pixel artists choose to use 26.565 degrees. This is
+        because the pixels on the screen do not line up at 30, causing "jaggies," lines that do not appear smooth. Here is my basic 32x32 tile that can
+        be used to draw our ground.
+    </p>
+
+    <img style = "width: 5%; margin: auto; display: block;" src = "images/template_32.png"></img>
+
+    <p>Let's go ahead and plug it into our code and see what it looks like:</p>
+    <img class = "small_img" src = "images/projection_4.png"></img>
+
+    <p>With no offset, the upper left corner of the image is where the draw starts. The first tile being drawn is the one in the upper left corner of the
+        screen, and since we're subtracting from the <em>x</em> axis, it's drawn halfway off of the edge of screen.</p> So you will have to be aware that
+        you will need to translate the <em>x</em> axis by half of the map width. It's also worth noting that this draw order is perfect for what we're doing;
+        We don't need a separate <em>z</em> index for ordering our draw operations.</p>
+
+        <p>This article isn't finished! Rome wasn't built in a day. Especially by one dude with ADHD.</p>
+
+
+</div>
+    <script src="./main.js"></script>
+</div>
+</body>
+
+
+
+
+</html>

@@ -225,6 +225,12 @@ td {
     background-color: white;
 }
 
+.small_img {
+    display: block;
+    margin: auto;
+    width: 50%;
+}
+
 .boids {
     position: absolute;
     background-color: white;
