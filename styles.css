@@ -168,6 +168,7 @@ li a:visited {
 
 table {
     margin: auto;
+    border-spacing: 0;
 }
 
 .warning_box {
@@ -190,9 +191,10 @@ video {
     width: 100%;
 }
 
-.art_video {
-    margin-bottom: 2.5em;
-    margin-top: 2.5em;
+td {
+    margin: 0;
+    padding-left: 0.7%;
+    padding-right: 0.7%;
 }
 
 .table_img {
