@@ -46,27 +46,27 @@
 
             <pre>
                 <code>
-                    local noise = {}
+    local noise = {}
 
-                    function noise.new()
-                        local self = {}
+    function noise.new()
+        local self = {}
 
-                        self.create_noise = function (grid)
-                        for x = 1, #grid do
-                            for y = 1, #grid do
-                                if math.random() < 0.5 then
-                                    grid[x][y] = 0
-                                else
-                                    grid[x][y] = 1
-                                end
-                            end
-                        end
-                        return grid
-                    end
-                        return self
-                    end
+        self.create_noise = function (grid)
+        for x = 1, #grid do
+            for y = 1, #grid do
+                if math.random() < 0.5 then
+                    grid[x][y] = 0
+                else
+                    grid[x][y] = 1
+                end
+            end
+        end
+        return grid
+    end
+        return self
+    end
 
-                    return noise
+    return noise
                 </code>
             </pre>
 

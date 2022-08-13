@@ -35,6 +35,10 @@ body {
     display: inline;
 }
 
+.light_mode #theme {
+    background-color: slategrey;
+}
+
 #theme:hover {
     cursor: pointer;
 }
@@ -56,7 +60,6 @@ h1 {
     font-family: 'Rokkitt','Courier New', Courier, monospace;
     font-weight: 700;
     font-size: 6em;
-    color: white;
     text-align: center;
     margin: 5px 5px 0px;
 }
@@ -72,7 +75,6 @@ h2 {
     font-family: 'Rokkitt','Courier New', Courier, monospace;
     font-weight: 100;
     font-size: 2em;
-    color: white;
     text-align: center;
     margin: 0px 5px 10px;
 }
@@ -87,7 +89,6 @@ h3 {
     font-family: 'Rokkitt','Courier New', Courier, monospace;
     font-weight: 500;
     font-size: 3em;
-    color: white;
     text-align: center;
     margin: 0px 5px 0px;
 }
@@ -102,7 +103,6 @@ h4 {
     font-family: 'Rokkitt','Courier New', Courier, monospace;
     font-weight: 100;
     font-size: 1.5em;
-    color: white;
     text-align: center;
     margin: 0px 5px 0px;
 }
@@ -117,7 +117,6 @@ p {
     font-family: 'Rokkitt','Courier New', Courier, monospace;
     font-weight: 100;
     font-size: 1.25em;
-    color: white;
 }
 
 .plinks {
@@ -137,14 +136,12 @@ p {
     font-weight: 200;
     font-size: 1.25em;
     text-decoration: none;
+    color: red;
+
 }
 
 .articleLinks:hover {
     text-decoration: underline;
-}
-
-.articleLinks:visited {
-    color: red;
 }
 
 .navLinks {
@@ -177,9 +174,8 @@ img {
 }
 
 .light_mode pre code {
-    background-color: slategray;
+    background-color: whitesmoke;
     box-shadow: -3px 5px 10px 5px lightgray, 3px 5px 10px 5px lightgray;
-
 }
 
 pre code {
@@ -187,8 +183,6 @@ pre code {
     background-color: gray;
     display: block;
     overflow-x: auto;
-    box-shadow: 5px 5px 10px 5px #2b2a28, -5px 5px 10px 5px #2b2a28;
-
   }
 
 code {
@@ -206,11 +200,6 @@ li a {
     color: black;
     font-weight: 900;
 }
-
-/* li a:visited {
-    color: black;
-} */
-
 
 .nav {
     position: fixed;
@@ -247,7 +236,6 @@ table {
     font-family: 'Rokkitt','Courier New', Courier, monospace;
     font-weight: 100;
     font-size: 1.25em;
-    color: white;
     font-style: italic; 
     text-align: center;
 }
@@ -286,7 +274,6 @@ td {
     margin-left: 15%;
     margin-right: 15%;
     box-shadow: 8px 8px 40px rgba(0, 0, 0, 0.5), -8px -8px 40px rgba(0, 0, 0, 0.5);
-    
 }
 
 .light_mode .wrapper {
@@ -310,11 +297,6 @@ td {
     display: inline-block;
 }
 
-/* Light Mode */
-/* /* .light_mode {
-    background-color: slategray;
-    border: none;
-} */
 
 .light_mode {
     font-family: 'Times New Roman', Times, serif;
@@ -326,18 +308,13 @@ td {
     background-size: 50px 50px, 50px 50px, 10px 10px, 10px 10px;
     background-position: -2px -2px, -2px -2px, -1px -1px, -1px -1px;
 }
+
 .light_mode a {
     color: darkblue;
 }
 .light_mode li a {
     color: black;
 }
-/* .light_mode li a:visited {
-    color: black;
-} */
-/* .light_mode a:visited {
-    color: darkblue;
-} */
 
 .light_mode .boids {
     background-color: black;
