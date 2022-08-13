@@ -12,8 +12,19 @@ theme.onclick = function () {
     document.body.classList.remove("theme", mode)
     if (mode === "light_mode") {
         mode = "dark_mode"
-    } else { mode = "light_mode"}
+    } else { mode = "light_mode" }
+    toggleBtn()
     document.body.classList.add("theme", mode)
     sessionStorage.setItem("theme", mode)
     return mode
 }
+
+function toggleBtn() {
+    var toggleBtn = document.getElementById('toggleBtn')
+    if (toggleBtn.innerHTML === "Light Mode") {
+        toggleBtn.innerHTML = "Dark Mode";
+    }
+    else {
+        toggleBtn.innerHTML="Light Mode"
+    }
+    }
