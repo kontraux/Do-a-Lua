@@ -5,54 +5,38 @@ html {
 
 body {
     height: 100%;
-    font-family: 'Courier New', Courier, monospace;
     background-color: black;
-    color: white;
-    background-image:  linear-gradient(30deg, #2b2a28 12%, transparent 12.5%, transparent 87%, #2b2a28 87.5%, #2b2a28), linear-gradient(150deg, #2b2a28 12%, transparent 12.5%, transparent 87%, #2b2a28 87.5%, #2b2a28), linear-gradient(30deg, #2b2a28 12%, transparent 12.5%, transparent 87%, #2b2a28 87.5%, #2b2a28), linear-gradient(150deg, #2b2a28 12%, transparent 12.5%, transparent 87%, #2b2a28 87.5%, #2b2a28), linear-gradient(60deg, #2b2a2877 25%, transparent 25.5%, transparent 75%, #2b2a2877 75%, #2b2a2877), linear-gradient(60deg, #2b2a2877 25%, transparent 25.5%, transparent 75%, #2b2a2877 75%, #2b2a2877);
+    background-image:  
+        linear-gradient(30deg, #111111 12%, transparent 12.5%, transparent 90%, #111111 90.5%, #111111), 
+        linear-gradient(150deg, #111111 12%, transparent 12.5%, transparent 90%, #111111 90.5%, #111111), 
+        linear-gradient(30deg, #111111 12%, transparent 12.5%, transparent 87%, #111111 87.5%, #111111), 
+        linear-gradient(150deg, #111111 12%, transparent 12.5%, transparent 87%, #111111 87.5%, #111111), 
+        linear-gradient(60deg, #080808 25%, transparent 25.5%, transparent 75%, #080808 75%, #080808), 
+        linear-gradient(60deg, #080808 25%, transparent 25.5%, transparent 75%, #080808 75%, #080808);
     background-size: 20px 35px;
     background-position: 0 0, 0 0, 10px 18px, 10px 18px, 0 0, 10px 18px;
     background-attachment: fixed;
 }
 
+/* Theme Button */
 #theme {
     background-color: red;
     border: none;
 }
-.light_mode #theme {
-    background-color: slategray;
-    border: none;
-}
 
+/* ????? */
 .dark_mode #theme {
     background-color: red;
     border: none;
+    background-color: inherit;
+    padding: 3px 3px;
+    font-size: 1em;
+    cursor: pointer;
+    display: inline;
 }
 
 #theme:hover {
     cursor: pointer;
-}
-
-.light_mode {
-    font-family: 'Times New Roman', Times, serif;
-    font-size: 1.1em;
-    background-color: whitesmoke;
-    color: black;
-    background-color: #e5e5f7;
-    background-image:  linear-gradient(#a4a5ae 2px, transparent 2px), linear-gradient(90deg, #a4a5ae 2px, transparent 2px), linear-gradient(#a4a5ae 1px, transparent 1px), linear-gradient(90deg, #a4a5ae 1px, #e5e5f7 1px);
-    background-size: 50px 50px, 50px 50px, 10px 10px, 10px 10px;
-    background-position: -2px -2px, -2px -2px, -1px -1px, -1px -1px;
-}
-.light_mode a {
-    color: darkblue;
-}
-.light_mode li a {
-    color: black;
-}
-.light_mode li a:visited {
-    color: black;
-}
-.light_mode a:visited {
-    color: darkblue;
 }
 
 .dark_mode {
@@ -60,33 +44,55 @@ body {
     color: white;
 }
 
-.home_box {
-    padding: 2em;
+.subheadContainer {
+    padding: 20px;
+    text-align: center;
 
 }
 
+/* Heddings and subheads */
+
 h1 {
-    font-size: 2em;
-    font-weight:100;
-    margin-bottom: 0;
+    font-family: 'Rokkitt','Courier New', Courier, monospace;
+    font-weight: 700;
+    font-size: 6em;
+    color: white;
     text-align: center;
+    margin: 5px 5px 0px;
+}
+
+@media screen {
+    h1 {
+        font-size: 4em;
+    }
     
 }
 
 h2 {
-    font-size: 1.3em;
-    text-align: center;
+    font-family: 'Rokkitt','Courier New', Courier, monospace;
     font-weight: 100;
-    font-style: italic;
-    margin-top: 0;
+    font-size: 2em;
+    color: white;
+    text-align: center;
+    margin: 0px 5px 10px;
 }
 
 h3 {
-    display: block;
-    font-size: 1.2em;
+    font-family: 'Rokkitt','Courier New', Courier, monospace;
+    font-weight: 500;
+    font-size: 3em;
+    color: white;
     text-align: center;
+    margin: 0px 5px 0px;
+}
+
+h4 {
+    font-family: 'Rokkitt','Courier New', Courier, monospace;
     font-weight: 100;
-    font-style: italic;
+    font-size: 1.5em;
+    color: white;
+    text-align: center;
+    margin: 0px 5px 0px;
 }
 
 p {
@@ -94,14 +100,26 @@ p {
     font-size: 1em;
 }
 
-a {
-    font-size: 1em;
+.articleLinks {
+    font-family: 'Rokkitt','Courier New', Courier, monospace;
+    font-weight: 200;
+    font-size: 1.25em;
+    text-decoration: none;
     color: red;
 }
 
-a:visited {
-    color:red;
+.articleLinks:hover {
+    text-decoration: underline;
 }
+
+hr {
+    border: 1px solid red;
+    margin-top: 10px;
+}
+
+/* a:visited {
+    color:red;
+} */
 
 img {
     max-width: 100%;
@@ -141,9 +159,9 @@ li a {
     font-weight: 900;
 }
 
-li a:visited {
+/* li a:visited {
     color: black;
-}
+} */
 
 
 .nav {
@@ -181,10 +199,6 @@ table {
     text-align: center;
 }
 
-.centered {
-    text-align: center;
-}
-
 video {
     border: 2px solid white;
     margin: 0;
@@ -213,11 +227,12 @@ td {
 .wrapper {
     min-height: 100%;
     background-color: black;
-    opacity: 100;
+    opacity: 100%;
     padding: 2%;
     padding-top: 5%;
     margin-left: 15%;
     margin-right: 15%;
+    box-shadow: 8px 8px 40px rgba(0, 0, 0, 0.5), -8px -8px 40px rgba(0, 0, 0, 0.5);
     
 }
 
@@ -235,6 +250,36 @@ td {
     border-radius: 50%;
     display: inline-block;
 }
+
+/* Light Mode */
+/* /* .light_mode {
+    background-color: slategray;
+    border: none;
+} */
+
+.light_mode {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 1.1em;
+    background-color: whitesmoke;
+    color: black;
+    background-color: #e5e5f7;
+    background-image:  linear-gradient(#a4a5ae 2px, transparent 2px), linear-gradient(90deg, #a4a5ae 2px, transparent 2px), linear-gradient(#a4a5ae 1px, transparent 1px), linear-gradient(90deg, #a4a5ae 1px, #e5e5f7 1px);
+    background-size: 50px 50px, 50px 50px, 10px 10px, 10px 10px;
+    background-position: -2px -2px, -2px -2px, -1px -1px, -1px -1px;
+}
+.light_mode a {
+    color: darkblue;
+}
+.light_mode li a {
+    color: black;
+}
+/* .light_mode li a:visited {
+    color: black;
+} */
+/* .light_mode a:visited {
+    color: darkblue;
+} */
+
 .light_mode .boids {
     background-color: black;
 }
