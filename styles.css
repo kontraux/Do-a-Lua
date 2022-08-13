@@ -50,7 +50,7 @@ body {
 
 }
 
-/* Heddings and subheads */
+/* Text Dark Mode */
 
 h1 {
     font-family: 'Rokkitt','Courier New', Courier, monospace;
@@ -61,11 +61,11 @@ h1 {
     margin: 5px 5px 0px;
 }
 
-@media screen {
+@media only screen and (max-width: 400px) {
     h1 {
-        font-size: 4em;
-    }
-    
+        font-size: 3.5em;
+        margin-top: 30px;
+    } 
 }
 
 h2 {
@@ -77,6 +77,12 @@ h2 {
     margin: 0px 5px 10px;
 }
 
+@media only screen and (max-width: 400px) {
+    h2 {
+        font-size: 1.5em;
+    } 
+}
+
 h3 {
     font-family: 'Rokkitt','Courier New', Courier, monospace;
     font-weight: 500;
@@ -84,6 +90,12 @@ h3 {
     color: white;
     text-align: center;
     margin: 0px 5px 0px;
+}
+
+@media only screen and (max-width: 400px) {
+    h3 {
+        font-size: 2em;
+    } 
 }
 
 h4 {
@@ -95,9 +107,29 @@ h4 {
     margin: 0px 5px 0px;
 }
 
+@media only screen and (max-width: 400px) {
+    h4 {
+        font-size: 1em;
+    } 
+}
+
 p {
-    padding-bottom: 1em;
+    font-family: 'Rokkitt','Courier New', Courier, monospace;
+    font-weight: 100;
+    font-size: 1.25em;
+    color: white;
+}
+
+.plinks {
+    font-family: 'Rokkitt','Courier New', Courier, monospace;
+    font-weight: 100;
     font-size: 1em;
+    color: red; 
+    text-decoration: none;
+}
+
+.plinks:hover {
+    text-decoration: underline;
 }
 
 .articleLinks {
@@ -105,11 +137,29 @@ p {
     font-weight: 200;
     font-size: 1.25em;
     text-decoration: none;
-    color: red;
 }
 
 .articleLinks:hover {
     text-decoration: underline;
+}
+
+.articleLinks:visited {
+    color: red;
+}
+
+.navLinks {
+    font-family: 'Rokkitt','Courier New', Courier, monospace;
+    font-weight: 700;
+    font-size: 1.25em;
+    text-decoration: none;
+}
+
+.navLinks:hover {
+    text-decoration: underline;
+}
+
+.navLinks:visited {
+    color: black;
 }
 
 hr {
@@ -117,9 +167,7 @@ hr {
     margin-top: 10px;
 }
 
-/* a:visited {
-    color:red;
-} */
+
 
 img {
     max-width: 100%;
@@ -191,10 +239,15 @@ table {
 
 .warning_box {
     display:block; 
-    border: 3px solid red; 
+    border: 3px solid red;
+    align-content: center;
 }
 
 .warning_text {
+    font-family: 'Rokkitt','Courier New', Courier, monospace;
+    font-weight: 100;
+    font-size: 1.25em;
+    color: white;
     font-style: italic; 
     text-align: center;
 }
