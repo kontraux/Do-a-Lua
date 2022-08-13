@@ -35,6 +35,7 @@
     <pre>
         <code>
             local map = {}
+            local tile = love.graphics.newImage('/sprites/template_32.png')
 
             function map.new(rows, columns)
                 local grid = {}
@@ -47,7 +48,6 @@
                 end
                 return grid
             end
-            
             
             return map
         </code>
@@ -118,11 +118,11 @@
 
     <pre>
         <code>
-    viewport.cart_to_axo = function (x, y)
-        local axox = (x - y) * (tilewidth / 2)
-        local axoy = (x + y) * (tileheight / 4)
-        return axox, axoy
-    end
+        viewport.cart_to_axo = function (x, y)
+            local axox = (x - y) * (tilewidth / 2)
+            local axoy = (x + y) * (tileheight / 4)
+            return axox, axoy
+        end
         </code>
     </pre>
 
@@ -168,11 +168,24 @@
         local tile = love.graphics.newImage('/sprites/template_32.png')
         tile:setFilter("nearest", "nearest")
 
+        function viewport.new_grid(rows, columns)
+            local grid = {}
+            for x = 1, rows do
+                grid[x] = {}
+                for y = 1, columns do
+                    grid[x][y] = tile
+                end
+            end
+            return grid
+        end
+
         function viewport.cart_to_axo(x, y)
             local axox = (x - y) * (tilewidth / 2)
             local axoy = (x + y) * (tileheight / 4)
             return axox, axoy
         end
+
+        local map = viewport.new_grid(10, 10)
 
         function viewport.draw(map)
             for x = 1, #map do
@@ -180,11 +193,10 @@
                     love.graphics.origin()
                     local axox, axoy = viewport.cart_to_axo(x, y)
                     love.graphics.translate((tilewidth * #map) * scale / 2, 0)
-                    love.graphics.draw(tile, axox * scale, axoy * scale, 0, scale)
+                    love.graphics.draw(grid[x][y], axox * scale, axoy * scale, 0, scale)
                 end
             end
         end
-
 
         return viewport
         </code>
