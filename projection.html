@@ -144,11 +144,71 @@
     <img class = "small_img" src = "images/projection_4.png"></img>
 
     <p>With no offset, the upper left corner of the image is where the draw starts. The first tile being drawn is the one in the upper left corner of the
-        screen, and since we're subtracting from the <em>x</em> axis, it's drawn halfway off of the edge of screen.</p> So you will have to be aware that
+        screen, and since we're subtracting from the <em>x</em> axis, it's drawn halfway off of the edge of screen. So you will have to be aware that
         you will need to translate the <em>x</em> axis by half of the map width. It's also worth noting that this draw order is perfect for what we're doing;
-        We don't need a separate <em>z</em> index for ordering our draw operations.</p>
+        We don't need a separate <em>z</em> index for ordering our draw operations. Let's see what it looks like centered and scaled.</p>
 
-        <p>This article isn't finished! Rome wasn't built in a day. Especially by one dude with ADHD.</p>
+    <img class = "small_img" src = "images/projection_5.png"></img>
+
+    <p>It looks blurry. LÖVE, by default, interpolates graphics information with a <em>linear</em> algorithm. This means, if you're doing pixel art, or
+    otherwise have low resolution images, you will have a poor outcome when scaling up. The more work-intensive way to solve this problem is by drawing
+    the art at higher resolutions, and use mipmaps to downscale. This clearly isn't a great solution, it will increase RAM usage and the total file size
+    of your game. The better solution is to change the filtering mode. Any drawable in LÖVE has a method to change filtering to "nearest neighbor". That
+    means when a canvas pixel is sitting in-between <em>screen</em> pixels, the interpolation draws another full pixel. We've made a few changes, so
+    let's take a look at the entire viewport code.</p>
+
+    <pre>
+        <code>
+        local viewport = {}
+
+        local tilewidth = 32
+        local tileheight = 32
+        local scale = 2
+
+        local tile = love.graphics.newImage('/sprites/template_32.png')
+        tile:setFilter("nearest", "nearest")
+
+        function viewport.cart_to_axo(x, y)
+            local axox = (x - y) * (tilewidth / 2)
+            local axoy = (x + y) * (tileheight / 4)
+            return axox, axoy
+        end
+
+        function viewport.draw(map)
+            for x = 1, #map do
+                for y = 1, #map[x] do
+                    love.graphics.origin()
+                    local axox, axoy = viewport.cart_to_axo(x, y)
+                    love.graphics.translate((tilewidth * #map) * scale / 2, 0)
+                    love.graphics.draw(tile, axox * scale, axoy * scale, 0, scale)
+                end
+            end
+        end
+
+
+        return viewport
+        </code>
+    </pre>
+
+
+    <img class = "small_img" src = "images/projection_6.png"></img>
+
+    <p>Okay! So it looks sharp now. We're ready to wrap it up, right? <em>Beware Murphy's Law.</em> We've just been looking at screenshots so far, and
+        we haven't actually moved around.
+    </p>
+
+    <video src = "videos/projection_1.mp4" controls muted></video>
+
+    <p>Do you notice the flickering on the edges of the tiles, and how the lines aren't very straight? That's due to aliasing. You must do all of your 
+        drawing operations by whole numbers to get smooth movement without this flickering. If you have already written all of your code as floats, that's okay. 
+        Just make sure to use a rounding function like <em>math.floor</em> on the coordinates and scale when it is drawn.
+    </p>
+
+    <video src = "videos/projection_2.mp4" controls muted></video>
+
+    <p>I hope I've done a good job covering the basics of axonometric projection. If you have any questions, or suggestions for the article, feel free
+        to let me know. Thanks for reading!
+    </p>
 
 
 </div>
