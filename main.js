@@ -9,7 +9,7 @@ function getTheme() {
     return mode
 }
 
-theme.onclick = function () {
+theme = function () {
     document.body.classList.remove("theme", mode)
     if (mode == "light_mode") {
         mode = "dark_mode"
