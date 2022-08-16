@@ -1,3 +1,4 @@
+//Router start
 let routes = {};
 let templates = {};
 
@@ -12,23 +13,25 @@ function buildNav() {
             .then(data => {
             div.innerHTML = data;
             })
-            document.body.appendChild(div)
-            return div
+                document.body.appendChild(div)
+                return div
 }
 
 function buildPage(file) {
     buildNav()
     let div = document.getElementById('page') || document.createElement('div')
+    div.innerHTML = "";
     div.id = 'page'
     fetch(file)
         .then(response => {
           return response.text()
         })
-        .then(data => {
-        div.innerHTML = data;
-        });
-        document.body.appendChild(div)
-        return div
+            .then(data => {
+            div.innerHTML = data;
+            });
+                document.body.appendChild(div)
+                window.scrollTo(0, 0);
+                    return div
     
 }
 
@@ -42,7 +45,8 @@ function cellular_automata() { buildPage('cellular_automata.html'); }
 function drunk () { buildPage('drunk.html'); }
 function projection () { buildPage('projection.html'); }
 function stocks () { buildPage('stocks.html'); }
-function type () { buildPage('type.html'); }
+
+function type () {  buildPage('type.html'); } ;
 
 function template (name, templateFunction) {
     return templates[name] = templateFunction;
@@ -83,7 +87,6 @@ route('art', 'art');
 route('/', 'index');
 
 function resolveRoute(route) {
-    console.log(route)
     try {
         return routes[route];
     } catch (e) {
@@ -94,9 +97,8 @@ function resolveRoute(route) {
 function router(evt) {
     let url = window.location.hash.slice(1) || '/';
     let route = resolveRoute(url);
-    console.log(url, route)
     route();
 };
 
-window.addEventListener('load', router)
+window.addEventListener('load', router);
 window.addEventListener('hashchange', router);
