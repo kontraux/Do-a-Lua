@@ -1,4 +1,3 @@
-// Theme start
 var mode = sessionStorage.getItem("theme", mode) || "dark_mode"
 sessionStorage.setItem("theme", mode)
 window.onload = getTheme()
@@ -51,9 +50,42 @@ function typewriter() {
 
 function pageReload() {
         let url = window.location.hash.slice(1) || '/';
-        (function () { if (url === 'type') { location.reload() } })()
+        (function () { if (url === 'type' || 'boids') { location.reload() } })()
+
 }
+
+let flocks = 3
+function makeBoids() {
+    let boids_num = Math.random() * 10
+    let url = window.location.hash.slice(1) || '/';
+    let boids = {}
+    if (url == 'boids') {
+        for (let i = 0; i < boids_num; i++) { 
+            boids[i] = document.createElement('div')
+            boids[i].classList.toggle('boids')
+          }
+
+    for (i = 0; i < boids_num; i++) {
+        console.log(boids[i])
+        document.body.appendChild(boids[i])
+    }
+    for (let i = 0; i < boids_num; i++) {
+
+        let width = visualViewport.width;
+        let height = visualViewport.height;
+        let r = height * Math.random();
+
+        boids[i].animate( [ { transform: `translateX(${width + r}px)` }, {transform: `translateY(${(height + r)}px)` } ], { duration: (15000 * i) * 0.5 })
+        boids[i].animate( [{ transform: 'rotate(30deg)' }], { duration: 18000 } )
+        boids[i].animate( [{ transform: `rotate(${-r}deg)` }], { duration: 12000 } )
+        }
+        for (i = 0; i < flocks; i++) { window.setTimeout(makeBoids, 150); flocks = flocks - 1 }
+    }
+}
+
 
 window.addEventListener('hashchange', pageReload)
 window.addEventListener('hashchange', typewriter)
+window.addEventListener('hashchange', makeBoids)
 window.addEventListener('DOMContentLoaded', typewriter)
+window.addEventListener('DOMContentLoaded', makeBoids)
