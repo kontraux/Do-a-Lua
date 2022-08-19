@@ -1,4 +1,3 @@
-//Router start
 let routes = {};
 let templates = {};
 
